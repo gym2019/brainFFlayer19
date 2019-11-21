@@ -1,0 +1,17 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/ryuseiran/brainflayer-master.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[submodule "scrypt-jane"]
+	active = true
+	url = https://github.com/ryancdotorg/scrypt-jane.git
+[submodule "secp256k1"]
+	active = true
+	url = https://github.com/ryancdotorg/secp256k1.git
