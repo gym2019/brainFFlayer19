@@ -13,11 +13,11 @@ COMPILE = gcc $(CFLAGS)
 
 all: $(BINARIES)
 
-.git:
+git:
 	@echo 'This does not look like a cloned git repo. Unable to fetch submodules.'
 	@false
 
-secp256k1/.libs/libsecp256k1.a: .git
+secp256k1/libs/libsecp256k1.a: git
 	git submodule init
 	git submodule update
 	cd secp256k1; make distclean || true
@@ -25,9 +25,9 @@ secp256k1/.libs/libsecp256k1.a: .git
 	cd secp256k1; ./configure
 	cd secp256k1; make
 
-secp256k1/include/secp256k1.h: secp256k1/.libs/libsecp256k1.a
+secp256k1/include/secp256k1.h: secp256k1/libs/libsecp256k1.a
 
-scrypt-jane/scrypt-jane.h: .git
+scrypt-jane/scrypt-jane.h: git
 	git submodule init
 	git submodule update
 
@@ -64,7 +64,7 @@ filehex: filehex.o hex.o
 	$(COMPILE) $^ $(LIBS) -o $@
 
 brainflayer: brainflayer.o $(OBJ_UTIL) $(OBJ_ALGO) \
-             secp256k1/.libs/libsecp256k1.a scrypt-jane/scrypt-jane.o
+             secp256k1/libs/libsecp256k1.a scrypt-jane/scrypt-jane.o
 	$(COMPILE) $^ $(LIBS) -o $@
 
 clean:
