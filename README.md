@@ -67,4 +67,4 @@ Run Brainflayer:
 
 ./key256 | ./brainflayer -v -c cu -b example.blf -o found.txt
 
-
+              DONATE BTC THAKS 3QhhxbLcTPeiboRFGQFYsFtoVu9yNgWpK9
